@@ -4,29 +4,26 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <title>Registrace na letní dětský tábor</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <title>Rekapitulace registrace</title>
+    <link rel="stylesheet" href="/style.css"/>
 </head>
 <body>
 <div class="container">
-    <form class="registrace" action="/" method="post">
-        <h1>Formular k registraci na detsky tabor</h1>
+    <form class="tabor" action="/" method="post">
+    <div class="registrace">
+        <h1>Rekapitulace registrace</h1>
+        <div><h2>Registrace byla uspesne vytvorena.</h2>
 
-         <label for="jmeno" class="radek">Jmeno ditete:</label>
-                [@spring.formInput path="form.jmeno" /]
-                <div class="error">[@spring.showErrors "<br>"/]</div>
-
-         <label for="prijmeni" class="radek">Prijmeni ditete:</label>
-                [@spring.formInput path="form.prijmeni" /]
+        <label for="prijmeni" class="radek">Prijmeni ditete:</label>
+                [@spring.formInput path="form.prijmeni" attributes="readonly"/]
                 <div class="error">[@spring.showErrors "<br>"/]</div>
 
           <label for="datum narozeni" class="radek">Datum narozeni ditete:</label>
-                 [@spring.formInput path="form.datumNarozeni" fieldType="date" /]
+                 [@spring.formInput path="form.datumNarozeni" fieldType="date" attributes="readonly"/]
                  <div class="error">[@spring.showErrors "<br>"/]</div>
 
          <label for="pohlavi" class="radek">Pohlavi ditete:</label>
-                 [@spring.formSingleSelect path="form.pohlavi" options={
+                 [@spring.formSingleSelect path="form.pohlavi" attributes="readonly" options={
                      "": "",
                      "1": "zena",
                      "2": "muz"
@@ -34,7 +31,7 @@
                  <div class="error">[@spring.showErrors "<br>"/]</div>
 
          <label for="turnus" class="radek">Turnus:</label>
-                  [@spring.formSingleSelect path="form.turnus" options={
+                  [@spring.formSingleSelect path="form.turnus" attributes="readonly" options={
                        "": "",
                        "1": "5. - 11. července 2022",
                        "2": "12. - 18. července 2022",
@@ -43,17 +40,15 @@
                   <div class="error">[@spring.showErrors "<br>"/]</div>
 
          <label for="email" class="radek">E-mail na rodice:</label>
-                 [@spring.formInput path="form.emailRodic" fieldType="email" /]
+                 [@spring.formInput path="form.emailRodic" fieldType="email" attributes="readonly"/]
                  <div class="error">[@spring.showErrors "<br>"/]</div>
 
          <label for="telefon" class="radek">Telefon na rodice:</label>
-                  [@spring.formInput path="form.telefonRodic" fieldType="number" /]
+                  [@spring.formInput path="form.telefonRodic" fieldType="number" attributes="readonly"/]
                     <div class="error">[@spring.showErrors "<br>"/]</div>
 
-         <div class="radek controls">
-         <button type="submit"><h3>Registrovat</h3></button>
-         </div>
-
+    </div>
+ </div>
 </form>
 </div>
 </body>
