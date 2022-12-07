@@ -16,22 +16,22 @@ import javax.validation.Valid;
   public class RegistraceController {
   private final Random random = new Random();
 
-@GetMapping("/")
+  @GetMapping("/")
   public ModelAndView index() {
     ModelAndView modelAndView = new ModelAndView("/formular");
     modelAndView.addObject("form", new RegistraceForm());
-  return modelAndView;
+    return modelAndView;
   }
 
-@PostMapping("")
+  @PostMapping("")
   public Object form(@Valid @ModelAttribute("form") RegistraceForm form, BindingResult bindingResult) {
-  if (bindingResult.hasErrors()) {
-    return "/formular";
-  }
-  if (form.getVek() <= 9 || form.getVek() >= 15) {
-    return "/vek";
-  }
+    if (bindingResult.hasErrors()) {
+      return "/redirect";
+    }
+    if (form.getVek() <= 9 || form.getVek() >= 15) {
+      return "/vek";
+    }
     return new ModelAndView("/registrace");
 
-}
+  }
 }
